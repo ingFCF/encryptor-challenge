@@ -4,11 +4,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-primario: #0A3871;
+  --color-secundario: #F3F5FC;
+  --color-terciario: #D8DFE8;
+
+  --fuente-inter: 'Inter', sans-serif;
+}
+
 body {
   padding: 0;
   margin: 0;
-  font-family: "Inter", sans-serif;
-  background-color: #F3F5FC;
+  font-family: var(--fuente-inter);
+  background-color: var(--color-secundario);
 }
 
 .header {
@@ -76,26 +84,26 @@ body {
   }
 
   #btn-encrypt {
-    background-color: #0A3871;
+    background-color: var(--color-primario);
     color: white;
     display: block;
   }
 
   #btn-encrypt:hover {
     background-color: white;
-    color: #0A3871;
-    border: 1px solid #0A3871;
+    color: var(--color-primario);
+    border: 1px solid var(--color-primario);
 }
 
   #btn-desencrypt {
-    background-color: #D8DFE8;
-    color: #0A3871;
-    border: 1px solid #0A3871;
+    background-color: var(--color-terciario);
+    color: var(--color-primario);
+    border: 1px solid var(--color-primario);
   }
 
   #btn-desencrypt:hover {
-    background-color: #0A3871;
-    color: #D8DFE8;
+    background-color: var(--color-primario);
+    color: var(--color-terciario);
 }
 
   button {
@@ -112,6 +120,7 @@ body {
   .panel-right {
     background-color: white;
     border-radius: 0.5rem;
+    border: 0.3px solid gray;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,7 +153,7 @@ body {
   width: 90%;
   outline: none;
   transition: background 0.5s;
-  font-family: "Inter", sans-serif;
+  font-family: var(--fuente-inter);
   font-size: 18px;
   border-radius: 100px;
   overflow-y: hidden;
@@ -154,14 +163,14 @@ body {
 }
 
 textarea::placeholder {
-  font-family: "Inter", sans-serif;
+  font-family: var(--fuente-inter);
 }
 
 .panel-right-messages {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to bottom, #f2fcfe, #7882ac); 
+  background: linear-gradient(to bottom, #F2FCFE, #7882AC); 
   border-radius: 1rem;
 }
 
@@ -169,7 +178,7 @@ textarea::placeholder {
   width: 80%;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  background: #F3F5FC;
+  background: var(--color-secundario);
 }
 
 .panel-right-messages > p {
@@ -177,3 +186,68 @@ textarea::placeholder {
   font-size: 0.8rem;
 }
 
+/*Resposive*/
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  #emptyInbox {
+    display: none;
+  }
+
+  .panel-left {
+    padding: 0;
+  }
+
+  .panel-left-item {
+    margin-top: 8%;
+  }
+
+  .panel-left-bottom {
+    margin-top: 85%;
+  }
+
+  .panel-right {
+    padding: 1rem;
+  }
+
+  button {
+    width: 18rem;
+  }
+  
+}
+
+@media (max-width: 650px) {
+
+  .header {
+    margin-top: 8%;
+  }
+
+  .container{
+    justify-content: start;
+    padding: 0px;
+    gap: 2rem;
+  }
+
+  .panel-left{
+    margin-top: 3rem;
+    justify-content: center;
+  }
+
+  .panel-left-item {
+    margin-left: 2rem;
+  }
+
+  .panel-left-bottom-btns {
+    flex-direction: column;
+  }
+}
